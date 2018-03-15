@@ -1,0 +1,34 @@
+{
+  "name": "mei-js",
+  "version": "0.0.1",
+  "description": "js api",
+  "main": "dist/mei.js",
+  "scripts": {
+    "start": "webpack --config build/webpack.base.conf.js",
+    "build": "rm -rf dist && cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "es-2015"
+  ],
+  "author": "Meiminjun <13265678360@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meiminjun/mei-js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^4.1.1",
+    "webpack-merge": "^4.1.2"
+  },
+  "devDependencies": {
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^2.0.0",
+    "webpack-cli": "^2.0.12"
+  }
+}

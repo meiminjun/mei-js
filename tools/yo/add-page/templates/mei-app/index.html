@@ -1,0 +1,12 @@
+{% extends '../../templates/index.html' %}
+{% block title %}<%= pageTitle %>{% endblock %}
+{% block meta %}
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="keywords" content="平安黄金红包"/>
+<meta name="description" content="<%= pageDesc %>"/>
+{% endblock %}
+{% import '../../templates/scripts.html' as scripts %}
+{% block post-scripts %}
+{{ scripts.combo([config.libs.zepto, config.libs.share]) }}
+{{ scripts.single([config.libs.zhida]) }}
+{% endblock %}

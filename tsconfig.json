@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "declaration": false,
+    "noImplicitAny": false,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "jsx": "react",
+    "outDir": "dist",
+    "sourceMap": true,
+    "allowJs": true,
+    "lib": [
+      "es5",
+      "es6",
+      "dom",
+    ],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist"
+  ],
+  "compileOnSave": false
+}
