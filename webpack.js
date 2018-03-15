@@ -5,11 +5,11 @@ const isProduction = env === 'production'
 
 const fs = require('fs')
 function resolve(dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, dir)
 }
 
-var entry = fs.readdirSync(path.join(__dirname, '..', 'src/')).reduce((entryObj, dir) => {
-  const fullDir = path.join(__dirname, '..', 'src/' + dir)
+var entry = fs.readdirSync(path.join(__dirname, 'src/')).reduce((entryObj, dir) => {
+  const fullDir = path.join(__dirname, 'src/' + dir)
   const entry = path.join(fullDir, 'index.js')
   if (fs.statSync(fullDir).isDirectory() && fs.existsSync(entry)) {
     entryObj[dir] = entry
@@ -21,7 +21,7 @@ let config = {
   entry: entry,
   output: {
     path: resolve('dist'),
-    filename: '[name].js',
+    filename: isProduction ? '[name].min.js' : '[name].js',
   },
   mode: isProduction ? "production" : "development",
   devtool: isProduction ? 'none' : '#eval-source-map',
@@ -36,42 +36,28 @@ let config = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.(js)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        },
-        include: [resolve('src')]
-      },
-      {
-        test: /\.js$/,
         loader: 'babel-loader',
-        // exclude: /node_modules/,
         include: [resolve('src')]
       }
+      // {
+      //   test: /\.(js)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // }
     ]
   },
   plugins: isProduction ? [
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      sourceMap: false,
-      mangle: true,
-      compress: {
-        warnings: false
-      }
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
     })
   ] : [
-    // new webpack.DefinePlugin({
-    //   'process.env.NODE_ENV': JSON.stringify(env),
-    // })
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    })
     // new HtmlWebpackPlugin({
     //   template: resolve('src') + '/index.html',
     //   filename: 'index.html'

@@ -1,3 +1,4 @@
+import "babel-polyfill"
 var Shop = require('./src/shop.js')
 var Store = require('./src/store.js')
 var date = require('./src/date.js')
