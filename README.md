@@ -1,5 +1,6 @@
-# 说明文档
+# Mei.js
 
+<!-- 
 > npm run start
 
 ## 下载依赖
@@ -17,4 +18,4 @@ Invalid configuration object. Webpack has been initialised using a configuration
  - configuration.module has an unknown property 'loaders'. These properties are valid:
    object { exprContextCritical?, exprContextRecursive?, exprContextRegExp?, exprContextRequest?, noParse?, rules?, defaultRules?, unknownContextCritical?, unknownContextRecursive?, unknownContextRegExp?, unknownContextRequest?, unsafeCache?, wrappedContextCritical?, wrappedContextRecursive?, wrappedContextRegExp?, strictExportPresence?, strictThisContextOnImports? }
    -> Options affecting the normal modules (`NormalModuleFactory`).
-```
+``` -->

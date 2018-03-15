@@ -1,6 +1,6 @@
 {
-  "name": "mmj-js",
-  "version": "1.0.1",
+  "name": "mmj",
+  "version": "0.0.1",
   "description": "A JavaScript utility library focusing on aviation",
   "private": false,
   "main": "dist/mei.min.js",
