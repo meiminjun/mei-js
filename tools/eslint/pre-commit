@@ -1,7 +1,0 @@
-#!/usr/bin/env node
-
-const code = require('../../tools/eslint/eslint')();
-
-console.info('eslint code: %s', code);
-
-if(code > 0){ process.exit(code); }
