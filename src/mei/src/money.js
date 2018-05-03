@@ -25,7 +25,7 @@
 * console.log(formatNumber(393434.715861, 4, '.', '', 'round')) // 393434.7159
 * console.log(formatNumber(393434.715661, 4, '.', ',', 'round')) // 393,434.7157
 * */
-function formatNumber (number, decimals, decPoint, thousandsSep, roundtag) {
+export function formatNumber (number, decimals, decPoint, thousandsSep, roundtag) {
     number = (number + '').replace(/[^0-9+-Ee.]/g, '');
     roundtag = roundtag || 'floor'; // "ceil","floor","round"
     var n = !isFinite(+number) ? 0 : +number; // 要处理的数值
@@ -49,8 +49,4 @@ function formatNumber (number, decimals, decPoint, thousandsSep, roundtag) {
         s[1] += new Array(prec - s[1].length + 1).join('0');
     }
     return s.join(dec);
-}
-
-module.exports = {
-    formatNumber: formatNumber
 }

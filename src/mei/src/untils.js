@@ -1,5 +1,5 @@
 // 构造函数继承 TODO:后面与对象继承融合
-function extend (Child, Parent) {
+export function extend (Child, Parent) {
   var F = function () {}
   F.prototype = Parent.prototype
   Child.prototype = new F()
@@ -10,7 +10,7 @@ function extend (Child, Parent) {
 // 参考：https://github.com/mqyqingfeng/Blog/issues/22
 // 防抖: 频繁发生的情况下，只有足够时间，才执行一次，例如：坐公交，只要有人刷卡，车子就不会运行
 // debounce(getUserAction, 500);  // 500ms 内只执行一次
-function debounce (func, wait, immediate) {
+export function debounce (func, wait, immediate) {
   var timeout, result
   return function () {
     var context = this
@@ -32,7 +32,7 @@ function debounce (func, wait, immediate) {
   }
 }
 
-module.export = {
-  extend: extend,
-  debounce: debounce
-}
+// module.export = {
+//   extend: extend,
+//   debounce: debounce
+// }

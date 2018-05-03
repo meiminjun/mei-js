@@ -22,6 +22,8 @@ let config = {
   output: {
     path: resolve('dist'),
     filename: isProduction ? '[name].min.js' : '[name].js',
+    library: '[name]',  // library指定的就是你使用require时的模块名
+    libraryTarget: 'umd'
   },
   mode: isProduction ? "production" : "development",
   devtool: isProduction ? 'none' : '#eval-source-map',
@@ -35,34 +37,12 @@ let config = {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: /node_modules/,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         include: [resolve('src')]
       }
-      // {
-      //   test: /\.(js)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: [resolve('src')],
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter')
-      //   }
-      // }
     ]
-  },
-  plugins: isProduction ? [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env)
-    })
-  ] : [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env)
-    })
-    // new HtmlWebpackPlugin({
-    //   template: resolve('src') + '/index.html',
-    //   filename: 'index.html'
-    // })
-  ]
+  }
 }
 
 module.exports = config

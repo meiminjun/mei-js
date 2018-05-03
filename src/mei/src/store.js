@@ -1,5 +1,4 @@
-module.exports = {
-    getById: function (id) {
-        console.log(222);
-    }
+
+export function getById () {
+    console.log(2222);
 }

@@ -6,7 +6,7 @@
  * @param  {[type]} format [返回的时间格式，默认yyyyMMdd]
  * @return {[type]}        [description]
  */
-function recentDate (d, f, date, format) {
+export function recentDate (d, f, date, format) {
   var curDate = ''
   if (typeof d === 'undefined') {
     return
@@ -24,12 +24,12 @@ function recentDate (d, f, date, format) {
 // getSystemTime()  2017-12-27 17:52:53
 // getSystemTime('yyyy-MM-dd') 2017-12-27
 //
-function getSystemTime (format) {
+export function getSystemTime (format) {
   var date = new Date()
   return this.formatDate(date, format)
 }
 
-function formatDate (date, format) {
+export function formatDate (date, format) {
   var arr = []
   if (!date || date === '0') {
     return ''
@@ -83,7 +83,7 @@ function formatDate (date, format) {
   return format
 }
 
-function formatTime (date) {
+export function formatTime (date) {
   var arr = []
   if (typeof date === 'string') {
     if (date.length === 8) {
@@ -106,7 +106,7 @@ function formatTime (date) {
  *  unit  单位   只能为('y'或者'm'或者'd')
  *  return: 返回推移后的时间对象
  */
-function diffDateAdd (t1, num, unit) {
+export function diffDateAdd (t1, num, unit) {
   if (!t1 || typeof num === 'undefined' || !unit) {
     return ''
   }
@@ -119,16 +119,16 @@ function diffDateAdd (t1, num, unit) {
   return new Date(t1.getTime() + num * units)
 }
 
-function forEach (array, action) {
+export function forEach (array, action) {
   for (var i = 0; i < array.length; i++) {
     action(array[i])
   }
 }
 
-module.exports = {
-  recentDate: recentDate,
-  getSystemTime: getSystemTime, // 获取系统时间
-  formatTime: formatTime,
-  formatDate: formatDate,
-  diffDateAdd: diffDateAdd
-}
+// module.exports = {
+//   recentDate: recentDate,
+//   getSystemTime: getSystemTime, // 获取系统时间
+//   formatTime: formatTime,
+//   formatDate: formatDate,
+//   diffDateAdd: diffDateAdd
+// }
