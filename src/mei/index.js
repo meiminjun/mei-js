@@ -5,9 +5,9 @@ import * as untils from './src/untils.js';
 import * as money from './src/money.js';
 import * as store from './src/store.js';
 
-console.log(date.getSystemTime('yyyy-MM-dd'))
+// console.log(date.getSystemTime('yyyy-MM-dd'))
 
-export default {
+module.exports = {
     date,
     money,
     untils,

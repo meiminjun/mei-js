@@ -22,7 +22,7 @@ let config = {
   output: {
     path: resolve('dist'),
     filename: isProduction ? '[name].min.js' : '[name].js',
-    library: '[name]',  // library指定的就是你使用require时的模块名
+    library: 'mei',  // library指定的就是你使用require时的模块名
     libraryTarget: 'umd'
   },
   mode: isProduction ? "production" : "development",
