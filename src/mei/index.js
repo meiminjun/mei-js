@@ -1,16 +1,12 @@
 // import "babel-polyfill"
-import * as url from './src/url.js';
-import * as date from './src/date.js';
-import * as untils from './src/untils.js';
-import * as money from './src/money.js';
-import * as store from './src/store.js';
-
-// console.log(date.getSystemTime('yyyy-MM-dd'))
+import url from './src/url.js'
+import date from './src/date.js'
+import untils from './src/untils.js'
+import money from './src/money.js'
 
 module.exports = {
-    date,
-    money,
-    untils,
-    url,
-    store
+  date,
+  money,
+  untils,
+  url
 }

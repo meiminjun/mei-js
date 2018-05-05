@@ -26,27 +26,31 @@
 * console.log(formatNumber(393434.715661, 4, '.', ',', 'round')) // 393,434.7157
 * */
 export function formatNumber (number, decimals, decPoint, thousandsSep, roundtag) {
-    number = (number + '').replace(/[^0-9+-Ee.]/g, '');
-    roundtag = roundtag || 'floor'; // "ceil","floor","round"
-    var n = !isFinite(+number) ? 0 : +number; // 要处理的数值
-    var prec = !isFinite(+decimals) ? 0 : Math.abs(decimals); // 保留多少位
-    var dec = (typeof decPoint === 'undefined') ? '.' : decPoint; // 小数点符号
-    var sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep; // 千分位符号
-    var s = '';
-    var toFixedFix = function (n, prec) {
-        var k = Math.pow(10, prec);
-        return '' + parseFloat(Math[roundtag](parseFloat((n * k).toFixed(prec * 2))).toFixed(prec * 2)) / k;
-    };
-    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-    if (sep !== '') {
-        var re = /(-?\d+)(\d{3})/;
-        while (re.test(s[0])) {
-            s[0] = s[0].replace(re, '$1' + sep + '$2');
-        }
+  number = (number + '').replace(/[^0-9+-Ee.]/g, '')
+  roundtag = roundtag || 'floor'; // "ceil","floor","round"
+  var n = !isFinite(+number) ? 0 : +number; // 要处理的数值
+  var prec = !isFinite(+decimals) ? 0 : Math.abs(decimals); // 保留多少位
+  var dec = (typeof decPoint === 'undefined') ? '.' : decPoint; // 小数点符号
+  var sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep; // 千分位符号
+  var s = ''
+  var toFixedFix = function (n, prec) {
+    var k = Math.pow(10, prec)
+    return '' + parseFloat(Math[roundtag](parseFloat((n * k).toFixed(prec * 2))).toFixed(prec * 2)) / k
+  }
+  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.')
+  if (sep !== '') {
+    var re = /(-?\d+)(\d{3})/
+    while (re.test(s[0])) {
+      s[0] = s[0].replace(re, '$1' + sep + '$2')
     }
-    if ((s[1] || '').length < prec) {
-        s[1] = s[1] || '';
-        s[1] += new Array(prec - s[1].length + 1).join('0');
-    }
-    return s.join(dec);
+  }
+  if ((s[1] || '').length < prec) {
+    s[1] = s[1] || ''
+    s[1] += new Array(prec - s[1].length + 1).join('0')
+  }
+  return s.join(dec)
+}
+
+export default {
+  formatNumber
 }

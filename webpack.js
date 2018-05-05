@@ -1,10 +1,10 @@
 const path = require('path') // 导入路径包
-const webpack = require('webpack')
+// const webpack = require('webpack')
 const env = process.env.NODE_ENV
 const isProduction = env === 'production'
 
 const fs = require('fs')
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, dir)
 }
 

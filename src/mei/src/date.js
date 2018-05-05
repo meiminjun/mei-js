@@ -125,10 +125,10 @@ export function forEach (array, action) {
   }
 }
 
-// module.exports = {
-//   recentDate: recentDate,
-//   getSystemTime: getSystemTime, // 获取系统时间
-//   formatTime: formatTime,
-//   formatDate: formatDate,
-//   diffDateAdd: diffDateAdd
-// }
+export default {
+  recentDate,
+  getSystemTime,
+  formatDate,
+  formatTime,
+  diffDateAdd
+}
