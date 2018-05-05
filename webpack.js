@@ -25,7 +25,7 @@ let config = {
     library: 'mei',  // library指定的就是你使用require时的模块名
     libraryTarget: 'umd'
   },
-  mode: isProduction ? "production" : "development",
+  mode: isProduction ? 'production' : 'development',
   devtool: isProduction ? 'none' : '#eval-source-map',
   resolve: {
     extensions: ['.js'],
